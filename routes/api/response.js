@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const responseController = require("../../controllers/responseController");
 
-// Matches with "/api/response"
-router.route("/response")
+// Matches with "/api/responses"
+router.route("/")
   .get(responseController.findAll)
   .post(responseController.create)
   .delete(responseController.remove);
