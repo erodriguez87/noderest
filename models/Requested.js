@@ -5,9 +5,9 @@ const Schema = mongoose.Schema;
 
 // creating the request schema, this can change but it requires a restart of the server
 const RequestSchema = new Schema({
-  Date: { type: String, required: true },
-  PromoName: { type: String, required: true },
-  PromoValue: {type: Number, required: true}
+  Pass: { type: String, required: true },
+  Model: { type: String, required: true },
+  data: [[]]
 });
 
 // This creates our model from the above schema, using mongoose's model method

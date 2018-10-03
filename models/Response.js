@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const ResponseSchema = new Schema({
   Pass: { type: String, required: true },
   Model: { type: String, required: true },
-  Data: []
+  data: [[]]
 });
 
 // This creates our model from the above schema, using mongoose's model method

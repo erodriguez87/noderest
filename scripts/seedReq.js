@@ -13,7 +13,7 @@ mongoose.connect(
     {
       Pass: "1",
       Model: "Deliveries",
-      Data: [["9/1/2018", null, null],
+      data: [["9/1/2018", null, null],
        ["9/2/2018", null, null],
        ["9/3/2018", null, null],
        ["9/4/2018", null, null],
