@@ -1,5 +1,14 @@
 const db = require("../models");
+const exec = require("ssh-exec");
 
+function sshfunc() {
+  exec('sh AI_as_bash.bash', {
+    user:'dave',
+    host:'10.142.0.5',
+    key: "./scripts/generatedtestrsa",
+    password:''
+  }).pipe(process.stdout)
+}
 // Defining methods for the requestsController
 module.exports = {
   findAll: function(req, res) {
@@ -18,6 +27,7 @@ module.exports = {
   create: function(req, res) {
     db.Requested
       .create(req.body)
+      .then(sshfunc())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
