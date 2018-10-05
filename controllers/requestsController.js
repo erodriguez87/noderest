@@ -19,6 +19,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByPass: function(req, res) {
+    console.log(req.params.pass)
     db.Requested
       .findOne(req.params.pass)
       .then(dbModel => res.json(dbModel))
