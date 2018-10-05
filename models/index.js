@@ -2,6 +2,7 @@
 
 module.exports = {
     Requested: require("./Requested"),
-    Response: require("./Response")
+    Response: require("./Response"),
+    Baseline: require("./Baseline")
   };
   
