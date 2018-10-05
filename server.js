@@ -2,10 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const exec = require('ssh-exec')
+// const exec = require('ssh-exec')
 const app = express();
 // const davekey = require('./scripts/dave')
-const PORT = process.env.PORT || 300
+const PORT = process.env.PORT || 3000
 
 const http = require('http');
 const server = http.createServer(app);
@@ -26,8 +26,6 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mousetrap");
-
-
 
 
 // Start the API server

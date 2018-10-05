@@ -9,7 +9,7 @@ function sshfunc() {
     password:''
   }).pipe(process.stdout)
 }
-// Defining methods for the requestsController
+//Defining methods for the requestsController
 module.exports = {
   findAll: function(req, res) {
     db.Requested
@@ -26,10 +26,13 @@ module.exports = {
   // },
   create: function(req, res) {
     db.Requested
-      .create(req.body)
-      .then(sshfunc())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    .deleteMany({})
+    .then(db.Requested.create(req.body)
+    .then(sshfunc())
+    .then(console.log('request post hit'))
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err)))
+    
   },
   // update: function(req, res) {
   //   db.Beer
