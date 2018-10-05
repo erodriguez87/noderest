@@ -7,4 +7,8 @@ router.route("/")
   .post(requestsController.create)
   .delete(requestsController.remove);
 
+router.route("/:pass")
+  .get(requestsController.findByPass)
+  .delete(requestsController.remove);
+
 module.exports = router;

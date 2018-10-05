@@ -18,15 +18,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function(req, res) {
-  //   db.Beer
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findByPass: function(req, res) {
+    db.Requested
+      .findOne(req.params.pass)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Requested
-    .deleteMany({})
     .then(db.Requested.create(req.body)
     .then(sshfunc())
     .then(console.log('request post hit'))

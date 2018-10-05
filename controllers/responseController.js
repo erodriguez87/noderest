@@ -5,18 +5,20 @@ module.exports = {
   findAll: function(req, res) {
     db.Response
       .find()
+      
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function(req, res) {
-  //   db.Beer
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
+  findByPass: function(req, res) {
+    db.Response
+      .findById(req.params.pass)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Response
-    .deleteMany({})
+    // .deleteMany({})
+    .then(db.Requested.deleteOne({"Pass":req.params.pass}))
     .then(db.Response.create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err)));
