@@ -13,7 +13,7 @@ const server = http.createServer(app);
 // server.listen(80);  //listen on port 80
 
 // Define middleware here
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true, limit:'10mb' }));
 app.use(bodyParser.json());
 
 // Serve up static assets (usually on heroku)
