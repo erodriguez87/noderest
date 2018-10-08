@@ -21,18 +21,18 @@ module.exports = {
   findByPass: function(req, res) {
     console.log(req.params.pass)
     db.Requested
-      .findOne(req.params.pass)
+      .findOne({Pass:req.params.pass})
+      .findOneAndRemove({"Pass":req.params.pass})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
     db.Requested
-    .then(db.Requested.create(req.body)
+    .create(req.body)
     .then(sshfunc())
-    .then(console.log('request post hit'))
+    .then(console.log('request post from excel'))
     .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err)))
-    
+    .catch(err => res.status(422).json(err))
   },
   // update: function(req, res) {
   //   db.Beer
