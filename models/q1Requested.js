@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const Q1RequestSchema = new Schema({
   Pass: { type: String, required: true },
   Model: { type: String, required: true },
+  VersionKey:{type:String, required:true},
   data: [[]]
 });
 
